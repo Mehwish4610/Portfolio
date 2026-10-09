@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mehwish — Data &amp; Web Studio</title>
+<meta name="description" content="Mehwish: aspiring data scientist and analyst. Projects in Python, SQL, Power BI, Excel and machine learning, plus websites and dashboards.">
+<meta name="theme-color" content="#fff4e0">
+<meta property="og:title" content="Mehwish — Data &amp; Web Studio">
+<meta property="og:description" content="Data science and analytics projects, dashboards and websites.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23ff6b57'/%3E%3Ctext x='32' y='44' font-size='36' font-family='Arial' font-weight='800' text-anchor='middle' fill='%231f2a44'%3EM%3C/text%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f7f4ee;--fg:#16181d;--mut:#6a6e78;--acc:#c2410c;--card:#fffdf9;--bd:#e6e0d4;--dk:#16181d;--dkf:#f7f4ee;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#101216;--fg:#f1ede4;--mut:#9a9ea8;--acc:#fb923c;--card:#171a20;--bd:#262a33;--dk:#f1ede4;--dkf:#101216}}
+:root[data-theme="dark"]{--bg:#101216;--fg:#f1ede4;--mut:#9a9ea8;--acc:#fb923c;--card:#171a20;--bd:#262a33;--dk:#f1ede4;--dkf:#101216}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Inter,system-ui,sans-serif;line-height:1.6;overflow-x:hidden}
+.w{max-width:1080px;margin:auto;padding:0 24px}
+.serif{font-family:Fraunces,Georgia,serif}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--bd)}
+header .w{display:flex;justify-content:space-between;align-items:center;height:64px}
+.logo{font-size:1.3rem;font-weight:600;text-decoration:none;color:var(--fg)}
+.logo i{color:var(--acc);font-style:normal}
+header nav{display:flex;gap:22px;align-items:center;font-size:.92rem}
+header nav a{color:var(--mut);text-decoration:none}header nav a:hover{color:var(--fg)}
+.btn{display:inline-block;padding:11px 22px;border-radius:999px;font-weight:600;font-size:.95rem;text-decoration:none;border:1.5px solid var(--fg);color:var(--fg);transition:.2s}
+.btn.p{background:var(--dk);color:var(--dkf)}
+.btn:hover{transform:translateY(-2px)}
+#th{background:none;border:1px solid var(--bd);color:var(--fg);border-radius:50%;width:32px;height:32px;cursor:pointer}
+@media(max-width:700px){header nav a:not(.btn){display:none}}
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;padding:72px 0 56px}
+@media(max-width:860px){.hero{grid-template-columns:1fr}}
+.open{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--bd);background:var(--card);border-radius:999px;padding:6px 14px;font-size:.85rem;font-weight:500}
+.open i{width:9px;height:9px;border-radius:50%;background:#22a05a;box-shadow:0 0 0 0 rgba(34,160,90,.6);animation:p 2s infinite}
+@keyframes p{70%{box-shadow:0 0 0 9px rgba(34,160,90,0)}100%{box-shadow:0 0 0 0 rgba(34,160,90,0)}}
+h1{font-family:Fraunces,Georgia,serif;font-weight:600;font-size:clamp(2.4rem,6vw,4.1rem);line-height:1.06;letter-spacing:-.025em;margin:.4em 0}
+h1 em{color:var(--acc);font-style:italic}
+.lead{font-size:1.12rem;color:var(--mut);max-width:520px}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.facts{display:flex;gap:30px;flex-wrap:wrap;margin-top:40px;padding-top:24px;border-top:1px solid var(--bd)}
+.facts b{display:block;font-family:Fraunces,serif;font-size:1.7rem;line-height:1.1}
+.facts span{font-size:.8rem;color:var(--mut)}
+.win{background:var(--card);border:1px solid var(--bd);border-radius:14px;box-shadow:0 30px 60px -25px rgba(0,0,0,.28);transition:transform .2s ease-out;transform-style:preserve-3d}
+.bar{display:flex;gap:6px;padding:12px 14px;border-bottom:1px solid var(--bd);align-items:center}
+.bar i{width:10px;height:10px;border-radius:50%;background:var(--bd)}
+.bar small{margin-left:10px;color:var(--mut);font-size:.72rem}
+.dash{padding:18px}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.kpis div{border:1px solid var(--bd);border-radius:10px;padding:9px 11px}
+.kpis small{display:block;font-size:.66rem;color:var(--mut)}.kpis b{font-family:Fraunces,serif;font-size:1.2rem}
+.tabs{display:flex;gap:6px;margin:16px 0 8px}
+.tabs button{border:1px solid var(--bd);background:none;color:var(--mut);border-radius:999px;padding:3px 12px;font:inherit;font-size:.75rem;cursor:pointer}
+.tabs button.on{background:var(--dk);color:var(--dkf);border-color:var(--dk)}
+.bars{display:flex;align-items:flex-end;gap:9px;height:130px}
+.bars i{flex:1;background:var(--acc);border-radius:5px 5px 0 0;opacity:.88;transition:height .7s cubic-bezier(.3,1.3,.5,1)}
+.bars i:nth-child(odd){opacity:.55}
+.cap{font-size:.68rem;color:var(--mut);margin-top:8px}
+section{padding:72px 0;border-top:1px solid var(--bd)}
+.k{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--acc);font-weight:600}
+h2{font-family:Fraunces,Georgia,serif;font-weight:600;font-size:clamp(1.8rem,4vw,2.6rem);letter-spacing:-.02em;margin:.2em 0 .4em}
+.rows{margin-top:28px}
+.row{display:grid;grid-template-columns:56px 1fr auto;gap:18px;align-items:start;padding:24px 0;border-top:1px solid var(--bd);transition:.25s}
+.row:hover{padding-left:12px}
+.row .n{font-family:Fraunces,serif;color:var(--acc);font-size:1.3rem}
+.row h3{margin:0;font-family:Fraunces,serif;font-size:1.4rem}
+.row p{margin:.3em 0 .6em;color:var(--mut);max-width:620px}
+.tg span{display:inline-block;font-size:.74rem;border:1px solid var(--bd);border-radius:999px;padding:2px 10px;margin:0 6px 6px 0;color:var(--mut)}
+.row a{color:var(--fg);font-weight:600;font-size:.9rem;white-space:nowrap}
+@media(max-width:640px){.row{grid-template-columns:36px 1fr}.row a{grid-column:2}}
+.g3{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin-top:28px}
+.c{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:26px;transition:.25s}
+.c:hover{transform:translateY(-5px);border-color:var(--acc)}
+.c h3{font-family:Fraunces,serif;margin:.1em 0 .3em;font-size:1.25rem}
+.c p{color:var(--mut);margin:.3em 0 1em;font-size:.95rem}
+.c small{color:var(--fg);font-size:.82rem}
+.c small b{color:var(--acc)}
+.st .n{font-family:Fraunces,serif;font-size:2.6rem;color:var(--acc);line-height:1}
+.st p{color:var(--mut);margin:.3em 0}
+.cv{display:grid;grid-template-columns:1fr 1fr;gap:34px;margin-top:26px}
+@media(max-width:700px){.cv{grid-template-columns:1fr}}
+.cv h3{font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mut);margin:0 0 10px}
+.cv p{margin:0 0 14px}.cv p span{display:block;color:var(--mut);font-size:.9rem}
+.tl{display:flex;overflow-x:auto;margin:26px 0 6px;padding-bottom:8px}
+.tl>div{flex:1;min-width:140px;position:relative;border-top:2px solid var(--bd);padding:18px 14px 0 0}
+.tl>div:before{content:"";position:absolute;top:-7px;left:0;width:12px;height:12px;border-radius:50%;background:var(--acc)}
+.tl b{display:block;font-family:Fraunces,serif}
+.tl span{display:block;font-size:.85rem;color:var(--mut)}
+.tl .now b{color:var(--acc)}
+.tl .now:before{animation:p 2s infinite;box-shadow:0 0 0 0 rgba(194,65,12,.5)}
+.row a+br+a{display:inline-block;margin-top:4px}
+
+:root{--c1:var(--acc);--c2:#2a7f86;--c3:#b7791f;--c4:#4c5a7a}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--c2:#5cc7cf;--c3:#f0c674;--c4:#9aa7d1}}
+:root[data-theme="dark"]{--c2:#5cc7cf;--c3:#f0c674;--c4:#9aa7d1}
+.kpis{grid-template-columns:repeat(4,1fr);gap:7px}.kpis div{padding:7px 8px}.kpis b{font-size:1rem}.kpis small{font-size:.58rem}
+.kpis em{display:block;font-style:normal;font-size:.55rem;color:var(--mut)}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0 2px}
+.chips button{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--bd);background:none;color:var(--fg);border-radius:999px;padding:3px 10px;font:inherit;font-size:.7rem;cursor:pointer;transition:opacity .2s}
+.chips button i{width:8px;height:8px;border-radius:50%}
+.chips button.off{opacity:.4}
+.two{display:grid;grid-template-columns:120px 1fr;gap:10px;align-items:center;margin-top:8px}
+#lc,#dn,#br{width:100%;display:block;overflow:visible}
+.lbl{fill:var(--mut);font-size:8px;font-family:Inter,sans-serif}
+.val{fill:var(--fg);font-size:8px;font-family:Inter,sans-serif;font-weight:600}
+.ln{fill:none;stroke:var(--acc);stroke-width:2.5;stroke-linejoin:round}
+.ar{fill:var(--acc);opacity:.12}
+.pt{fill:var(--card);stroke:var(--acc);stroke-width:2;cursor:pointer;transition:r .15s}
+.pt:hover{r:6.5}
+.sl{fill:none;stroke-width:20;cursor:pointer;transition:stroke-width .15s}
+.sl:hover{stroke-width:25}
+.s1{stroke:var(--c1)}.s2{stroke:var(--c2)}.s3{stroke:var(--c3)}.s4{stroke:var(--c4)}
+.f1{fill:var(--c1);background:var(--c1)}.f2{fill:var(--c2);background:var(--c2)}.f3{fill:var(--c3);background:var(--c3)}.f4{fill:var(--c4);background:var(--c4)}
+.brr{cursor:pointer;transition:opacity .15s}.brr:hover{opacity:.75}
+.cap{min-height:2.6em}
+.art .btn{margin:10px 10px 0 0}
+.art h3{font-size:1.3rem}
+
+.lk{display:flex;flex-direction:column;gap:8px;min-width:118px}
+.row .btn.sm{padding:8px 16px;font-size:.82rem;text-align:center;margin:0}
+.cv .btn.sm{display:inline-block;padding:8px 16px;font-size:.82rem;margin:10px 8px 0 0}
+@media(max-width:640px){.row .lk{grid-column:2;flex-direction:row;flex-wrap:wrap}}
+.mm{position:fixed;inset:0;z-index:30;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(10,10,14,.55);backdrop-filter:blur(5px)}
+.mm[hidden]{display:none}
+.mc{position:relative;width:min(380px,100%);background:var(--card);border:1px solid var(--bd);border-radius:18px;padding:26px;box-shadow:0 30px 60px -20px rgba(0,0,0,.5)}
+.mc h3{font-family:Fraunces,serif;margin:0 0 4px;font-size:1.3rem}
+.mc p{color:var(--mut);margin:0 0 14px;font-size:.9rem}
+.ml{display:grid;gap:10px}.ml .btn{text-align:center}
+.mx{position:absolute;top:10px;right:12px;background:none;border:1px solid var(--bd);color:var(--fg);width:30px;height:30px;border-radius:50%;cursor:pointer}
+.ma{font-size:.8rem;color:var(--mut);text-align:center;margin-top:12px;word-break:break-all}
+.gh{margin-top:26px;padding-top:22px;border-top:1px solid var(--bd);display:flex;align-items:center;gap:14px;flex-wrap:wrap;color:var(--mut)}
+.gh .btn.sm{padding:8px 16px;font-size:.82rem;margin:0}
+.gh{margin-top:20px;padding:0;border:0;display:block;font-size:.95rem}
+.gh a{color:var(--acc);font-weight:600}
+.ct{font-size:.62rem;color:var(--mut);text-align:center;margin-top:4px}
+.end{text-align:center;padding:90px 0}
+.end .lead{margin:auto}.end .cta{justify-content:center}
+footer{border-top:1px solid var(--bd);padding:24px;text-align:center;color:var(--mut);font-size:.85rem}
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s,transform .7s}.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+
+/* ---- responsive layer ---- */
+.w{padding-left:max(24px,env(safe-area-inset-left));padding-right:max(24px,env(safe-area-inset-right))}
+@media(min-width:1500px){.w{max-width:1240px}.lead{font-size:1.2rem}}
+.g3{grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr))}
+.hit{fill:transparent;cursor:pointer}
+.mc{max-height:90vh;overflow:auto}
+@media(max-width:860px){.win{max-width:640px;width:100%;margin:0 auto}.hero{padding:48px 0 36px;gap:32px}}
+@media(max-width:640px){
+.w{padding-left:max(18px,env(safe-area-inset-left));padding-right:max(18px,env(safe-area-inset-right))}
+section{padding:52px 0}
+.facts{gap:18px 26px}
+.tl{flex-direction:column;overflow:visible}
+.tl>div{flex:none;border-top:0;border-left:2px solid var(--bd);padding:0 0 20px 20px;min-width:0}
+.tl>div:before{top:2px;left:-7px}
+.c{padding:20px}
+}
+@media(max-width:520px){
+.kpis{grid-template-columns:1fr 1fr;gap:8px}.kpis b{font-size:1.15rem}.kpis small{font-size:.66rem}.kpis em{font-size:.62rem}
+.two{grid-template-columns:1fr;gap:18px}.two>div:first-child{max-width:190px;margin:0 auto;width:100%}
+#lc .lbl,#lc .val{font-size:11px}
+.tabs button{padding:6px 14px}
+}
+@media(pointer:coarse){.chips button,.tabs button{padding:8px 14px;font-size:.78rem}.btn{min-height:44px;display:inline-flex;align-items:center;justify-content:center}}
+
+/* ---- vector art layer ---- */
+:root{--bg:#fff4e0;--fg:#1f2a44;--mut:#4f5a75;--acc:#4545c4;--card:#ffffff;--bd:rgba(31,42,68,.16);--dk:#1f2a44;--dkf:#fff4e0;--onp:#1f2a44;--v1:#ff6b57;--v2:#ffc233;--v3:#1fb5a3;--v4:#5b5bd6;--c2:#f0523f;--c3:#12a595;--c4:#d98e00}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#131a35;--fg:#eef0ff;--mut:#aab3d6;--acc:#a5a8ff;--card:#1b2448;--bd:rgba(238,240,255,.18);--dk:#eef0ff;--dkf:#131a35;--onp:#131a35;--v1:#ff8573;--v2:#ffd25a;--v3:#3fd6c4;--v4:#8c8cff;--c2:#ff8573;--c3:#3fd6c4;--c4:#ffc233}}
+:root[data-theme="dark"]{--bg:#131a35;--fg:#eef0ff;--mut:#aab3d6;--acc:#a5a8ff;--card:#1b2448;--bd:rgba(238,240,255,.18);--dk:#eef0ff;--dkf:#131a35;--onp:#131a35;--v1:#ff8573;--v2:#ffd25a;--v3:#3fd6c4;--v4:#8c8cff;--c2:#ff8573;--c3:#3fd6c4;--c4:#ffc233}
+body{font-family:Inter,sans-serif;background-image:radial-gradient(color-mix(in srgb,var(--fg) 13%,transparent) 1.5px,transparent 1.5px);background-size:26px 26px}
+h1,h2,h3,.logo,.facts b,.kpis b,.row .n,.tl b,.mc h3,.st .n,.c h3{font-family:Outfit,Inter,sans-serif}
+h1{font-weight:800;letter-spacing:-.04em;line-height:1.02}
+h1 em{font-style:normal;color:var(--acc);background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='10' viewBox='0 0 40 10'%3E%3Cpath d='M0 5Q10 -1 20 5T40 5' fill='none' stroke='%23ffc233' stroke-width='3.5' stroke-linecap='round'/%3E%3C/svg%3E") repeat-x left bottom/40px 10px;padding-bottom:.14em}
+h2{font-weight:800;letter-spacing:-.03em}
+h3{font-weight:700}
+@keyframes fl{50%{translate:0 -9px}}
+.a1{fill:var(--v1)}.a2{fill:var(--v2)}.a3{fill:var(--v3)}.a4{fill:var(--v4)}.gl{fill:var(--card)}
+.st1{stroke:var(--v1)}.steam{fill:none;stroke:var(--fg);opacity:.35;stroke-width:4;stroke-linecap:round}
+.stage{position:relative;padding:36px 30px 46px}
+.stage .win{position:relative;z-index:1}
+.dc{position:absolute;z-index:2;animation:fl 7s ease-in-out infinite;pointer-events:none}
+.s1{width:110px;top:-6px;right:-14px}
+.s2{width:118px;bottom:-14px;left:-22px;animation-delay:-2s}
+.s3{width:62px;top:34%;left:-26px;animation-delay:-4s}
+.s4{width:84px;bottom:-4px;right:-10px;animation-delay:-1s}
+.wave{display:block;width:100%;height:70px;margin-top:8px}
+.wave.f{height:50px;margin-top:50px}
+footer{background:var(--v3);color:var(--onp);font-weight:600;margin-top:-1px}
+.ic{width:58px;height:58px;display:block;margin-bottom:12px}
+header{background:color-mix(in srgb,var(--bg) 90%,transparent);border-bottom:0}
+.logo i{color:var(--v1)}
+header nav a{font-weight:600;color:var(--fg)}header nav a:hover{color:var(--acc)}
+.btn{border:0;border-radius:999px;background:color-mix(in srgb,var(--fg) 9%,transparent);color:var(--fg);font-weight:700;transition:.15s}
+.btn:hover{background:color-mix(in srgb,var(--fg) 17%,transparent);transform:translateY(-2px)}
+.btn.p{background:var(--v1);color:var(--onp)}
+.btn.p:hover{background:var(--v2)}
+#th{border:0;background:color-mix(in srgb,var(--fg) 9%,transparent);color:var(--fg)}
+.open{border:0;background:color-mix(in srgb,var(--v3) 24%,var(--bg));font-weight:700}
+.open i{background:var(--v3);box-shadow:none}
+.k{display:inline-block;background:var(--v2);color:var(--onp);padding:4px 13px;border-radius:99px;font-weight:700;letter-spacing:.09em;font-size:.7rem;text-transform:uppercase}
+section{border-top:0;padding:56px 0}
+.facts{border-top:3px solid var(--bd)}
+.facts b{font-weight:800;color:var(--acc)}
+.rows{display:grid;gap:18px;margin-top:20px}
+.row{border:0;border-radius:28px;padding:24px;background:color-mix(in srgb,var(--v1) 20%,var(--bg));transition:transform .2s}
+.row:nth-child(5n+2){background:color-mix(in srgb,var(--v2) 24%,var(--bg))}
+.row:nth-child(5n+3){background:color-mix(in srgb,var(--v3) 22%,var(--bg))}
+.row:nth-child(5n+4){background:color-mix(in srgb,var(--v4) 20%,var(--bg))}
+.row:hover{padding-left:24px;transform:translateY(-4px)}
+.row .n{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--fg);color:var(--bg);font-size:1rem;font-weight:700}
+.row p{color:var(--mut)}
+.tg span{border:0;background:color-mix(in srgb,var(--fg) 9%,transparent);color:var(--fg);font-weight:600}
+.c{border:0;border-radius:28px;box-shadow:none;background:color-mix(in srgb,var(--v2) 22%,var(--bg));padding:26px}
+.g3>.c:nth-child(1){background:color-mix(in srgb,var(--v1) 20%,var(--bg))}
+.g3>.c:nth-child(2){background:color-mix(in srgb,var(--v3) 22%,var(--bg))}
+.g3>.c:nth-child(3){background:color-mix(in srgb,var(--v4) 20%,var(--bg))}
+.c:hover{transform:translateY(-5px);border:0}
+.c small b{color:var(--acc)}
+.st .n{display:inline-grid;place-items:center;width:54px;height:54px;border-radius:50%;background:var(--v2);color:var(--onp);font-size:1.5rem;font-weight:800}
+.st>div:nth-child(2) .n{background:var(--v3)}.st>div:nth-child(3) .n{background:var(--v1)}
+.win{background:var(--card);border:0;border-radius:28px;box-shadow:10px 10px 0 var(--v4)}
+.win .bar{border-bottom:1px solid var(--bd)}
+.bar i:nth-child(1){background:var(--v1)}.bar i:nth-child(2){background:var(--v2)}.bar i:nth-child(3){background:var(--v3)}
+.kpis div{border:0;border-radius:14px;background:color-mix(in srgb,var(--v1) 22%,var(--card))}
+.kpis div:nth-child(2){background:color-mix(in srgb,var(--v2) 28%,var(--card))}
+.kpis div:nth-child(3){background:color-mix(in srgb,var(--v3) 24%,var(--card))}
+.kpis div:nth-child(4){background:color-mix(in srgb,var(--v4) 22%,var(--card))}
+.tabs button,.chips button{border:0;background:color-mix(in srgb,var(--fg) 9%,transparent);color:var(--fg);font-weight:600}
+.tabs button.on{background:var(--fg);color:var(--bg)}
+.pt{fill:var(--card)}
+.tl>div{border-top:3px solid var(--bd)}
+.tl>div:before{width:14px;height:14px;top:-8.5px;background:var(--v1)}
+.tl>div:nth-child(4n+2):before{background:var(--v2)}.tl>div:nth-child(4n+3):before{background:var(--v3)}.tl>div:nth-child(4n):before{background:var(--v4)}
+.tl .now:before{box-shadow:0 0 0 0 var(--v1)}
+.cv h3{color:var(--acc);font-family:Outfit,sans-serif}
+.gh a,.row a:not(.btn){color:var(--acc)}
+.mc{border:0;border-radius:28px;box-shadow:10px 10px 0 var(--v4)}
+.mx{border:0;background:color-mix(in srgb,var(--fg) 9%,transparent)}
+@media(max-width:640px){.row .n{width:36px;height:36px;font-size:.9rem}.tl>div{border-top:0;border-left:3px solid var(--bd)}.tl>div:before{top:2px;left:-8.5px}}
+@media(max-width:520px){.stage{padding:26px 10px 38px}.s3{display:none}.s1{width:74px;top:-14px;right:-6px}.s2{width:84px;left:-6px;bottom:-22px}.s4{width:58px;right:-4px;bottom:-14px}}
+</style>
+</head>
+<body>
+<header><div class="w"><a class="logo serif" href="#top">Mehwish<i>.</i></a><nav><a href="#work">Work</a><a href="#writing">Writing</a><a href="#services">Services</a><a href="#about">About</a><button id="th" aria-label="Toggle theme">◐</button><a class="btn p" href="#contact">Start a project</a></nav></div></header>
+
+<main id="top">
+<div class="w hero">
+  <div>
+    <span class="open"><i></i>Open for roles &amp; projects</span>
+    <h1>Turning data into <em>insights</em>, and ideas into websites.</h1>
+    <p class="lead">I'm Mehwish, a Computer Science graduate building a career in data science and analytics. I also make dashboards and websites for people who need them.</p>
+    <div class="cta"><a class="btn p" href="#contact">Work with me</a><a class="btn" href="#work">See my work</a></div>
+    <div class="facts"><div><b>9.25</b><span>CGPA, B.E. CS</span></div><div><b>2+</b><span>internships</span></div><div><b>5+</b><span>projects built</span></div><div><b>1</b><span>published paper</span></div></div>
+  </div>
+  <div class="stage" aria-hidden="false">
+    <svg class="dc s1" viewBox="0 0 110 110" aria-hidden="true"><circle cx="46" cy="46" r="31" class="a4"/><circle cx="46" cy="46" r="22" class="gl"/><rect x="34" y="50" width="9" height="12" rx="2" class="a3"/><rect x="46" y="40" width="9" height="22" rx="2" class="a1"/><rect x="58" y="46" width="9" height="16" rx="2" class="a2"/><rect x="74" y="66" width="14" height="40" rx="7" transform="rotate(-45 81 86)" class="a1"/></svg>
+    <svg class="dc s2" viewBox="0 0 120 130" aria-hidden="true"><path d="M60 80C40 60 28 40 34 14C56 24 66 50 60 80Z" class="a3"/><path d="M60 80C84 66 96 44 90 24C68 32 56 54 60 80Z" class="a3" opacity=".75"/><path d="M60 82C50 70 36 66 22 70C30 84 46 90 60 82Z" class="a3" opacity=".55"/><path d="M34 86H86L78 126H42Z" class="a1"/><rect x="30" y="78" width="60" height="12" rx="6" class="a2"/></svg>
+    <svg class="dc s3" viewBox="0 0 70 110" aria-hidden="true"><path d="M10 40L36 4L62 40Z" class="a2"/><circle cx="36" cy="76" r="22" class="a4"/><circle cx="36" cy="76" r="9" class="gl"/></svg>
+    <svg class="dc s4" viewBox="0 0 90 90" aria-hidden="true"><rect x="10" y="30" width="48" height="44" rx="10" class="a1"/><path d="M58 40h8a12 12 0 010 24h-8" fill="none" stroke-width="8" class="st1"/><rect x="6" y="72" width="60" height="8" rx="4" class="a4"/><path d="M24 22q-6-8 0-14M40 22q-6-8 0-14" class="steam"/></svg>
+    <div class="win" id="win">
+    <div class="bar"><i></i><i></i><i></i><small>it-ticket-dashboard · from my Excel analysis</small></div>
+    <div class="dash">
+      <div class="kpis" id="kpis"></div>
+      <div class="tabs" id="mt"><button class="on" data-m="t">Tickets</button><button data-m="g">YoY growth</button><button data-m="c">Cumulative</button></div>
+      <svg id="lc" viewBox="0 0 360 120" role="img" aria-label="Line chart of IT tickets per year"></svg>
+      <div class="chips" id="chips"></div>
+      <div class="two"><div><svg id="dn" viewBox="0 0 120 120" role="img" aria-label="Donut chart of tickets by request category"></svg><div class="ct">Tickets by request category</div></div><div><svg id="br" viewBox="0 0 200 120" role="img" aria-label="Bar chart of ticket type and priority"></svg><div class="ct">Ticket type and priority</div></div></div>
+      <div class="cap" id="cap"></div>
+    </div>
+  </div>
+  </div>
+</div>
+
+<svg class="wave" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0 50C240 90 480 10 720 40S1200 80 1440 30V90H0Z" class="a2" opacity=".55"/><path d="M0 62C260 20 520 90 780 56S1220 20 1440 60V90H0Z" class="a3" opacity=".6"/><path d="M0 76C300 50 560 96 840 74S1260 52 1440 78V90H0Z" class="a4" opacity=".7"/></svg>
+<div class="w"><section id="work">
+  <div class="k rv">Selected work</div><h2 class="rv">Projects that do something.</h2>
+  <div class="rows">
+    <div class="row rv"><span class="n">01</span><div><h3>GDP &amp; Productivity of Indian Cities</h3><p>A Streamlit app for exploring GDP growth, employment trends and sector contributions across Indian cities. It has interactive line, bar and pie charts, city and year filters, an embedded Power BI dashboard, login and signup, and a feedback page.</p><div class="tg"><span>Python</span><span>Streamlit</span><span>Plotly</span><span>Power BI</span></div></div><div class="lk"><a class="btn p sm" href="https://gdp-appucivityvisualisationapp-6amnwngduzcvvmu522th2l.streamlit.app/" target="_blank" rel="noopener">Live demo</a><a class="btn sm" href="https://github.com/Mehwish4610/GDP-ProducivityVisualisationApp" target="_blank" rel="noopener">Code</a></div></div>
+    <div class="row rv"><span class="n">02</span><div><h3>Automatic Pothole Detection System</h3><p>An end-to-end machine learning system. YOLOv8 detects potholes in real time (0.91 mAP@0.5 with YOLOv8s on a custom dataset of 2,000+ images), MiDaS depth estimation and 3D point clouds estimate volume, and a Streamlit app produces repair-cost estimates. Published in JETIR, 2025.</p><div class="tg"><span>YOLOv8</span><span>PyTorch</span><span>MiDaS</span><span>Streamlit</span></div></div><div class="lk"><a class="btn sm" href="https://github.com/Mehwish4610/automatic-pothole-detection-system" target="_blank" rel="noopener">Code</a><a class="btn sm" href="https://www.jetir.org/view?paper=JETIR2505831" target="_blank" rel="noopener">Paper</a></div></div>
+    <div class="row rv"><span class="n">03</span><div><h3>IT Ticket Analysis Dashboard</h3><p>An Excel analysis of 97,498 IT support tickets handled by 50 agents (2016–2020): data cleaning, PivotTables, formulas and an interactive dashboard with slicers. It found demand grew 123% and about 30% of tickets had no priority assigned, then turned that into recommendations.</p><div class="tg"><span>Excel</span><span>PivotTables</span><span>Slicers</span><span>Dashboards</span></div></div><div class="lk"><a class="btn sm" href="https://github.com/Mehwish4610/excel-it-ticket-analysis" target="_blank" rel="noopener">Code</a><a class="btn sm" href="https://medium.com/@mehwishafreen10303/analyzing-97-000-it-support-tickets-in-excel-from-raw-data-to-business-insights-ae9a06fffe2e" target="_blank" rel="noopener">Article</a></div></div>
+    <div class="row rv"><span class="n">04</span><div><h3>Credit Card Analysis Dashboard</h3><p>A customer and transaction analysis of credit card data using PostgreSQL, Jupyter Notebook and Power BI, with DAX measures for age groups, income groups and week-over-week revenue.</p><div class="tg"><span>Power BI</span><span>DAX</span><span>PostgreSQL</span><span>Jupyter</span></div></div><div class="lk"><a class="btn sm" href="https://github.com/Mehwish4610/Credit_Card_Dashboard" target="_blank" rel="noopener">Code</a></div></div>
+    <div class="row rv"><span class="n">05</span><div><h3>Employee Management System</h3><p>A full-stack app with Spring Boot REST APIs, Hibernate/JPA and MySQL. It covers employee and department management, validation, global exception handling, and a JavaScript dashboard connected to the API.</p><div class="tg"><span>Spring Boot</span><span>MySQL</span><span>JPA</span><span>JavaScript</span></div></div><div class="lk"><a class="btn sm" href="https://github.com/Mehwish4610/employee-management-system" target="_blank" rel="noopener">Code</a></div></div>
+  </div>
+  <p class="gh rv"><em>More projects are on my <a href="https://github.com/Mehwish4610" target="_blank" rel="noopener">GitHub</a>.</em></p>
+</section></div>
+
+<div class="w"><section id="writing">
+  <div class="k rv">Writing</div><h2 class="rv">Learning in public.</h2>
+  <div class="c art rv"><div class="tg"><span>Data Analytics</span><span>Microsoft Excel</span><span>Data Visualization</span></div>
+    <h3>Analyzing 97,000+ IT Support Tickets in Excel: From Raw Data to Business Insights</h3>
+    <p>How I used Excel to analyze IT support operations, identify bottlenecks, evaluate agent performance, and build an interactive dashboard. 7 min read · October 2026.</p>
+    <a class="btn p" href="https://medium.com/@mehwishafreen10303/analyzing-97-000-it-support-tickets-in-excel-from-raw-data-to-business-insights-ae9a06fffe2e" target="_blank" rel="noopener">Read on Medium</a><a class="btn" href="https://medium.com/@mehwishafreen10303" target="_blank" rel="noopener">My Medium</a></div>
+</section></div>
+
+<div class="w"><section id="services">
+  <div class="k rv">Services</div><h2 class="rv">What I can build for you.</h2>
+  <div class="g3">
+    <div class="c rv"><svg class="ic" viewBox="0 0 64 64" aria-hidden="true"><rect x="4" y="10" width="56" height="44" rx="8" class="a4"/><rect x="4" y="10" width="56" height="13" rx="6" class="a1"/><circle cx="13" cy="16.5" r="2.5" class="gl"/><circle cx="21" cy="16.5" r="2.5" class="gl"/><rect x="12" y="30" width="22" height="16" rx="3" class="a2"/><rect x="38" y="30" width="14" height="4" rx="2" class="gl"/><rect x="38" y="38" width="14" height="4" rx="2" class="gl"/></svg><h3>Websites</h3><p>Portfolios, landing pages and small business sites that load fast and look right on phones.</p><small><b>Good for:</b> freelancers, students, local shops</small></div>
+    <div class="c rv"><svg class="ic" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="28" class="a3"/><path d="M32 32V4A28 28 0 0160 32Z" class="a2"/><path d="M32 32H60A28 28 0 0140 57Z" class="a1"/><circle cx="32" cy="32" r="11" class="gl"/></svg><h3>Dashboards &amp; analysis</h3><p>Raw data cleaned, analysed and shown in Power BI or Streamlit so decisions get easier.</p><small><b>Good for:</b> teams drowning in spreadsheets</small></div>
+    <div class="c rv"><svg class="ic" viewBox="0 0 64 64" aria-hidden="true"><rect x="6" y="6" width="24" height="24" rx="7" class="a1"/><rect x="34" y="6" width="24" height="24" rx="12" class="a2"/><rect x="6" y="34" width="24" height="24" rx="12" class="a3"/><path d="M46 34L58 56H34Z" class="a4"/></svg><h3>Web apps</h3><p>Admin panels, forms and record systems with React, Django or Spring Boot and a real database.</p><small><b>Good for:</b> internal tools and prototypes</small></div>
+  </div>
+  <div class="g3 st" style="margin-top:44px">
+    <div class="rv"><span class="n">1</span><p><b>Talk.</b> Share the goal and who it's for.</p></div>
+    <div class="rv"><span class="n">2</span><p><b>Draft.</b> You see a working draft early.</p></div>
+    <div class="rv"><span class="n">3</span><p><b>Launch.</b> Tested, deployed and explained.</p></div>
+  </div>
+</section></div>
+
+<div class="w"><section id="about">
+  <div class="k rv">Background</div><h2 class="rv">For recruiters, the short version.</h2>
+  <div class="tl rv"><div><b>2021</b><span>Started B.E. in Computer Science</span></div><div><b>Sep 2024</b><span>Cloud app intern, Rooman</span></div><div><b>Nov 2024</b><span>Data visualisation intern, Infosys. Built the GDP app</span></div><div><b>Apr 2025</b><span>Pothole detection, published in JETIR</span></div><div><b>2025</b><span>Graduated with 9.25 CGPA</span></div><div><b>May 2026</b><span>Employee Management System, full-stack</span></div><div><b>Aug 2026</b><span>Excel IT ticket analysis dashboard</span></div><div class="now"><b>Now</b><span>Levelling up into data science, learning SQL</span></div></div>
+  <div class="cv rv">
+    <div><h3>Experience</h3>
+      <p>Data Visualisation Intern, Infosys Springboard<span>Nov 2024 – Jan 2025 · Python, SQL, EDA, Power BI</span><a class="btn sm" href="https://drive.google.com/file/d/1C0NlUxj8wQlm2PB2ImEgqstAly8XOOKB/view?usp=sharing" target="_blank" rel="noopener">View certificate</a></p>
+      <p>Cloud Application Developer Intern, Rooman Technologies<span>Sep 2024 – Feb 2025 · REST APIs, cloud deployment, Git</span><a class="btn sm" href="https://drive.google.com/file/d/1EIjivmvanHYK9s8uwho-K2VQrDV5FShs/view?usp=drive_link" target="_blank" rel="noopener">View certificate</a></p>
+      <h3 style="margin-top:22px">Publication</h3>
+      <p>“Automatic Pothole Detection System”, JETIR 2025<span>Published research paper</span><a class="btn sm" href="https://www.jetir.org/view?paper=JETIR2505831" target="_blank" rel="noopener">Read the paper</a><a class="btn sm" href="https://drive.google.com/file/d/1VmhoJGgSnFOYIKHPeXXgKghVU3va0Irb/view?usp=sharing" target="_blank" rel="noopener">Publication certificate</a></p></div>
+    <div><h3>Education &amp; skills</h3>
+      <p>B.E. Computer Science, Maharaja Institute of Technology Mysore<span>2021 – 2025 · 9.25 / 10</span></p>
+      <p>Python · SQL · Pandas · NumPy · Matplotlib · Power BI · Excel · MySQL · PostgreSQL · React · Django · Docker · Git<span>Currently levelling up in machine learning and analytics. Open to data science, analytics and software roles.</span></p></div>
+  </div>
+</section></div>
+
+<div class="w"><section id="contact" class="end">
+  <div class="k rv">Contact</div><h2 class="rv">Let's build something useful.</h2>
+  <p class="lead rv">Hiring, or have a project in mind? Send a note and I'll get back to you.</p>
+  <div class="cta rv"><a class="btn p" href="mailto:mehwishafreen10303@gmail.com?subject=Hello%20Mehwish" data-mail>Email me</a><a class="btn" href="https://www.linkedin.com/in/mehwish-18476a266" target="_blank" rel="noopener">LinkedIn</a><a class="btn" href="https://github.com/Mehwish4610" target="_blank" rel="noopener">GitHub</a><a class="btn" href="https://medium.com/@mehwishafreen10303" target="_blank" rel="noopener">Medium</a><a class="btn" href="https://x.com/mehwishirl" target="_blank" rel="noopener">X</a></div>
+</section></div>
+</main>
+<svg class="wave f" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 30C240 0 480 60 720 30S1200 0 1440 30V60H0Z" class="a3"/></svg>
+<footer>© Mehwish</footer>
+
+<div class="mm" id="mm" hidden role="dialog" aria-modal="true" aria-label="Email Mehwish"><div class="mc"><button class="mx" id="mx" aria-label="Close">×</button><h3>Email Mehwish</h3><p>Pick your mail app. Her address is filled in for you.</p>
+<div class="ml"><a class="btn p" href="mailto:mehwishafreen10303@gmail.com?subject=Hello%20Mehwish">Default mail app</a>
+<a class="btn" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=mehwishafreen10303@gmail.com&amp;su=Hello%20Mehwish" target="_blank" rel="noopener">Gmail</a>
+<a class="btn" href="https://outlook.live.com/mail/0/deeplink/compose?to=mehwishafreen10303@gmail.com&amp;subject=Hello%20Mehwish" target="_blank" rel="noopener">Outlook</a>
+<a class="btn" href="https://compose.mail.yahoo.com/?to=mehwishafreen10303@gmail.com&amp;subject=Hello%20Mehwish" target="_blank" rel="noopener">Yahoo Mail</a>
+<button class="btn" id="cp" type="button" style="font:inherit;cursor:pointer">Copy address</button></div>
+<div class="ma" id="ma">mehwishafreen10303@gmail.com</div></div></div>
+<script>
+(function(){
+var r=document.documentElement;
+try{var t=localStorage.getItem('theme');if(t)r.setAttribute('data-theme',t)}catch(e){}
+document.getElementById('th').onclick=function(){var c=r.getAttribute('data-theme'),d=c?c==='dark':matchMedia('(prefers-color-scheme: dark)').matches,n=d?'light':'dark';r.setAttribute('data-theme',n);try{localStorage.setItem('theme',n)}catch(e){}};
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.classList.add('in')})},{threshold:.12});
+document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+var lv,ll,YR=[2016,2017,2018,2019,2020],TK=[13051,14915,18954,21490,29088],TOT=97498,CT=[['System',39002,'6.62 days'],['Login Access',29193,'0.31 days'],['Software',19570,'about 5.2 days'],['Hardware',9733,'7.63 days']],BR=[['IT requests',73220,2,'About 75% of tickets are IT requests, so repeated requests are a good target for automation.'],['IT errors',24278,3,'24,278 tickets are IT errors.'],['Priority set',68088,4,'Most tickets had a priority assigned.'],['No priority',29410,1,'29,410 tickets (about 30%) had no priority assigned. That points to a process issue, not a staffing one.']];
+var mode='t',on=[1,1,1,1],cap=document.getElementById('cap'),DEF='Real numbers from my Excel IT ticket analysis (2016–2020). Hover the charts, switch views and filter categories.';
+function fm(n){return n.toLocaleString('en-US')}
+function sumOn(){var s=0;CT.forEach(function(c,i){if(on[i])s+=c[1]});return s}
+function kp(){var s=sumOn();document.getElementById('kpis').innerHTML='<div><small>Tickets</small><b>'+fm(s)+'</b><em>'+(s/TOT*100).toFixed(0)+'% of all</em></div><div><small>Avg resolution</small><b>4.55 d</b><em>overall</em></div><div><small>Satisfied 4–5</small><b>80.3%</b><em>overall</em></div><div><small>IT agents</small><b>50</b><em>overall</em></div>'}
+function ln(){var v,l;if(mode==='t'){v=TK;l=YR}else if(mode==='g'){v=TK.slice(1).map(function(x,j){return (x/TK[j]-1)*100});l=YR.slice(1)}else{var a=0;v=TK.map(function(x){return a+=x});l=YR}
+var W=360,H=120,L=16,R=16,T=18,B=18,m=Math.max.apply(null,v)*1.12,n=v.length,X=function(i){return L+(W-L-R)*i/(n-1)},Y=function(x){return H-B-(H-B-T)*x/m},p='',h='';
+v.forEach(function(x,i){p+=(i?'L':'M')+X(i).toFixed(1)+' '+Y(x).toFixed(1)});
+h+='<line x1="'+L+'" x2="'+(W-R)+'" y1="'+(H-B)+'" y2="'+(H-B)+'" stroke="var(--bd)"/><path class="ar" d="'+p+'L'+X(n-1)+' '+(H-B)+'L'+X(0)+' '+(H-B)+'Z"/><path class="ln" d="'+p+'"/>';
+v.forEach(function(x,i){var t=mode==='g'?'+'+x.toFixed(1)+'%':(x>=1000?(x/1000).toFixed(1)+'k':x);h+='<circle class="hit" cx="'+X(i).toFixed(1)+'" cy="'+Y(x).toFixed(1)+'" r="14" data-i="'+i+'"/><circle class="pt" cx="'+X(i).toFixed(1)+'" cy="'+Y(x).toFixed(1)+'" r="4.5" data-i="'+i+'"/><text class="val" x="'+X(i).toFixed(1)+'" y="'+(Y(x)-9).toFixed(1)+'" text-anchor="middle">'+t+'</text><text class="lbl" x="'+X(i).toFixed(1)+'" y="'+(H-4)+'" text-anchor="middle">'+l[i]+'</text>'});
+document.getElementById('lc').innerHTML=h;lv=v;ll=l}
+function dn(){var s=sumOn(),C2=2*Math.PI*38,off=0,h='';CT.forEach(function(c,i){if(!on[i])return;var len=C2*c[1]/s,gp=on.reduce(function(a,x){return a+x},0)>1?1.5:0;h+='<circle class="sl s'+(i+1)+'" cx="60" cy="60" r="38" stroke-dasharray="'+(len-gp).toFixed(2)+' '+(C2-len+gp).toFixed(2)+'" stroke-dashoffset="'+(-off).toFixed(2)+'" transform="rotate(-90 60 60)" data-i="'+i+'"/>';off+=len});
+h+='<text class="val" x="60" y="59" text-anchor="middle" style="font-size:11px">'+fm(s)+'</text><text class="lbl" x="60" y="71" text-anchor="middle">tickets</text>';document.getElementById('dn').innerHTML=h}
+function br(){var m=73220,h='';BR.forEach(function(b,i){var y=i*28+6,w=100*b[1]/m;h+='<rect class="hit" x="0" y="'+(y-6)+'" width="200" height="24" data-i="'+i+'"/><text class="lbl" x="0" y="'+(y+9)+'">'+b[0]+'</text><rect class="brr f'+b[2]+'" x="62" y="'+y+'" width="'+w.toFixed(1)+'" height="12" rx="4" data-i="'+i+'"/><text class="val" x="'+(66+w).toFixed(1)+'" y="'+(y+10)+'">'+(b[1]/1000).toFixed(1)+'k</text>'});document.getElementById('br').innerHTML=h}
+function bind(id,fn){var el=document.getElementById(id);['mouseover','click'].forEach(function(ev){el.addEventListener(ev,function(e){var t=e.target;if(t.dataset&&t.dataset.i!==undefined)fn(+t.dataset.i)})});el.addEventListener('mouseleave',function(){cap.textContent=DEF})}
+bind('lc',function(i){cap.textContent=mode==='t'?ll[i]+': '+fm(lv[i])+' tickets'+(i?' ('+((lv[i]/lv[i-1]-1)*100).toFixed(1)+'% vs '+ll[i-1]+')':''):mode==='g'?ll[i]+': ticket volume grew '+lv[i].toFixed(1)+'% on the year before':'By the end of '+ll[i]+': '+fm(lv[i])+' tickets in total'});
+bind('dn',function(i){var c=CT[i];cap.textContent=c[0]+': '+fm(c[1])+' tickets ('+(c[1]/sumOn()*100).toFixed(0)+'% of selected)'+(c[2]?' · average '+c[2]+' to resolve':'')});
+bind('br',function(i){cap.textContent=BR[i][3]});
+var CH=document.getElementById('chips');CH.innerHTML=CT.map(function(c,i){return '<button data-i="'+i+'"><i class="f'+(i+1)+'"></i>'+c[0]+'</button>'}).join('');
+CH.onclick=function(e){var b=e.target.closest('button');if(!b)return;var i=+b.dataset.i;if(on[i]&&on.reduce(function(a,x){return a+x},0)===1)return;on[i]=on[i]?0:1;b.classList.toggle('off',!on[i]);kp();dn()};
+document.querySelectorAll('#mt button').forEach(function(b){b.onclick=function(){document.querySelectorAll('#mt button').forEach(function(y){y.classList.remove('on')});b.classList.add('on');mode=b.dataset.m;ln()}});
+kp();ln();dn();br();cap.textContent=DEF;
+var mm=document.getElementById('mm'),ma=document.getElementById('ma');
+function cm(){mm.hidden=true}
+document.querySelectorAll('[data-mail]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();mm.hidden=false})});
+document.getElementById('mx').onclick=cm;mm.addEventListener('click',function(e){if(e.target===mm)cm()});
+addEventListener('keydown',function(e){if(e.key==='Escape')cm()});
+document.getElementById('cp').onclick=function(){var t='mehwishafreen10303@gmail.com';try{navigator.clipboard.writeText(t).then(function(){ma.textContent='Copied: '+t},function(){ma.textContent=t})}catch(x){ma.textContent=t}};
+var w=document.getElementById('win');
+w.addEventListener('mousemove',function(e){var q=w.getBoundingClientRect(),x=(e.clientX-q.left)/q.width-.5,y=(e.clientY-q.top)/q.height-.5;w.style.transform='perspective(900px) rotateY('+x*8+'deg) rotateX('+(-y*8)+'deg)'});
+w.addEventListener('mouseleave',function(){w.style.transform=''});
+})();
+</script>
+</body>
+</html>
